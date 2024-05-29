@@ -1,4 +1,7 @@
-based heavily on this link: https://docs.snowflake.com/en/developer-guide/snowpark-container-services/tutorials/tutorial-1 and https://docs.snowflake.com/en/user-guide/data-load-dirtables-pipeline and https://geekpython.in/flask-app-for-image-recognition#google_vignette
+
+
+<img width="1173" alt="Screenshot 2024-05-29 at 1 24 39 PM" src="https://github.com/sfc-gh-tosmith/image-classification-spcs/assets/168590825/430a5f51-791d-4e8e-bde9-02e10f21b741">
+Based heavily on this link: https://docs.snowflake.com/en/developer-guide/snowpark-container-services/tutorials/tutorial-1 and https://docs.snowflake.com/en/user-guide/data-load-dirtables-pipeline and https://geekpython.in/flask-app-for-image-recognition#google_vignette
 
 First, create a conda environment by typing this in your terminal
 

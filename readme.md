@@ -29,7 +29,7 @@ Test the flask app by running
 ```
 Go to [localhost:5000/healthcheck](localhost:5000/healthcheck) and it should say "I'm ready"
 
-Optional:
+##### Optional:
 Using an API request tool like Postman, build a POST request to [localhost:5000/prediction](localhost:5000/prediction) by copying the example_request.json file contents into the body of the request. The response should look something like this:
 ```json
 {

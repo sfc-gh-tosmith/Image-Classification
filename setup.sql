@@ -158,7 +158,9 @@ WHERE METADATA$ACTION='INSERT'
 ALTER TASK CONVERT_AND_PREDICT_IMAGE RESUME;
   
 
--- To demonstrate the pipeline, upload some of the .jpeg images to the image_files stage.
+-- To demonstrate the pipeline, upload some of the .jpeg images to the image_files stage. Then, query the IMAGE_STAGE_STREAM
+SELECT * FROM IMAGE_STAGE_STREAM;
+
 -- Navigate to the CONVERT_AND_PREDICT_IMAGE task in Snowsight and click on the 'Run History' to see past, current and future runs of the task. 
 
 -- Once it runs successully, see the results of your work!

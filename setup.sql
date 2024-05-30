@@ -30,12 +30,17 @@ USE ROLE SPCS_HOL_ROLE;
 USE DATABASE SPCS_HOL_DB;
 USE WAREHOUSE SPCS_HOL_WH;
 
+-- Create schema for HOL
 CREATE SCHEMA IF NOT EXISTS DATA_SCHEMA;
+
+-- Create the image repository to hold the docker image for the service
 CREATE IMAGE REPOSITORY IF NOT EXISTS HOL_IMAGE_REPOSITORY;
+
+-- Create a stage to hold the UDF we will create for encoding images
 CREATE STAGE IF NOT EXISTS HOL_STAGE
   DIRECTORY = ( ENABLE = true );
 
--- Create Stage to hold the .jpeg image files
+-- Create a stage to hold the .jpeg image files
 CREATE OR REPLACE STAGE IMAGE_FILES
 DIRECTORY = (ENABLE = TRUE AUTO_REFRESH = FALSE) 
 ENCRYPTION = (TYPE = 'SNOWFLAKE_SSE') 

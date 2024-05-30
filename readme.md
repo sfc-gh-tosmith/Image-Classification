@@ -52,6 +52,10 @@ For part 2, follow the **setup.sql** file. In this file you will:
 - Create a function to interact with the running service
 - Build the stream, UDF, and task for the file processing pipeline
 
+### Possible changes and improvements
+- Use dynamic tables instead of a stream and task
+- Access and process the image file directly in the container, rather than with the stream, task, UDF pipeline
+
 ### Acknowledgments
 This lab brings together content from the following sources:
 - [SPCS Tutorial - Level 1](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/tutorials/tutorial-1)

@@ -24,9 +24,9 @@ Install the necessary dependencies by typing
   conda install --yes --file requirements.txt
 ```
 Test the flask app by running
-
+```
   python3 app.py
-
+```
 Go to localhost:5000/healthcheck and it should say "I'm ready"
 
 Optional:

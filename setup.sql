@@ -119,7 +119,7 @@ def encode_image(file_path):
 $$;
 
 -- Create a stream on the directory table of the image stage
-CREATE or replace STREAM IMAGE_STAGE_STREAM ON STAGE IMAGE_FILES;
+CREATE OR REPLACE STREAM IMAGE_STAGE_STREAM ON STAGE IMAGE_FILES;
 
 -- Create a table to hold the image info and predictions
 CREATE OR REPLACE TABLE SPCS_HOL_DB.DATA_SCHEMA.IMAGE_CLASSIFICATIONS (

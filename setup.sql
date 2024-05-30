@@ -25,6 +25,9 @@ GRANT USAGE, MONITOR ON COMPUTE POOL SPCS_HOL_COMPUTE_POOL TO ROLE SPCS_HOL_ROLE
 -- Give role ability to bind service endpoints to services
 GRANT BIND SERVICE ENDPOINT ON ACCOUNT TO ROLE SPCS_HOL_ROLE;
 
+-- Give role ability to turn tasks off and on
+GRANT EXECUTE TASK ON ACCOUNT TO ROLE SPCS_HOL_ROLE;
+
 -- Give the current user the SPCS_HOL_ROLE. Fill in your username.
 GRANT ROLE SPCS_HOL_ROLE TO USER <insert_current_user_here>;
 
@@ -151,3 +154,9 @@ WHERE METADATA$ACTION='INSERT'
 -- Start the task
 ALTER TASK CONVERT_AND_PREDICT_IMAGE RESUME;
   
+
+-- To demonstrate the pipeline, upload some of the .jpeg images to the image_files stage.
+-- Navigate to the CONVERT_AND_PREDICT_IMAGE task in Snowsight and click on the 'Run History' to see past, current and future runs of the task. 
+
+-- Once it runs successully, see the results of your work!
+SELECT * FROM IMAGE_CLASSIFICATIONS;

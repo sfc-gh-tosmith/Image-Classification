@@ -7,7 +7,7 @@ In this Hands-on-Lab, you will create an image classification service that runs 
 
 
 #### This Hands-on-Lab has two parts. 
-- Part 1: the local development of the container. 
+- Part 1: local development/testing of the container. 
 - Part 2: creating the SPCS service and image processing pipeline through the Snowsight UI.
 
 ## Part 1:
@@ -43,4 +43,10 @@ Using an API request tool like Postman, build a POST request to localhost:5000/p
 ```
 
 ## Part 2:
-For part 2, follow the setup.sql file. 
+For part 2, follow the setup.sql file. In this file you will:
+- Create a database, schema, and stages
+- Create a compute pool to run your service on
+- Build and push the docker container from your local machine into Snowflake
+- Create the image classification service, running in Snowpark Container Services
+- Create a function to interact with the running service
+- Build the stream, UDF, and task for the file processing pipeline

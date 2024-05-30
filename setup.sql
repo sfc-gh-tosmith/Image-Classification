@@ -94,6 +94,9 @@ CREATE OR REPLACE FUNCTION IMAGE_CLASSIFY_FUNCTION (InputText varchar)
   ENDPOINT=imageendpoint
   AS '/prediction';
 
+-- What we just did is super cool! Now we can use SQL to interact with container running within Snowflake
+-- This means we can call our container's endpoint directly within queries or data transformation pipelines! 
+
 -- At this point, you can test your function by running the below command.
 -- Insert the utf-8 string from example_request.json (starts with /9j/4AAQ)
 -- In a real world scenario/in the pipeline we will build, this will be dynamic. 

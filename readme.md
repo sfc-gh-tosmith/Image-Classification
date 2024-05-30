@@ -43,7 +43,7 @@ Using an API request tool like Postman, build a POST request to localhost:5000/p
 ```
 
 ## Part 2:
-For part 2, follow the setup.sql file. In this file you will:
+For part 2, follow the **setup.sql** file. In this file you will:
 - Create a database, schema, and stages
 - Create a compute pool to run your service on
 - Build and push the docker container from your local machine into Snowflake

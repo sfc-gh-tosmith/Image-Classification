@@ -12,7 +12,16 @@
 The service that we will be running is a Flask API that utilizes a Tensorflow model to classify American Sign Language numbers from images. This service was written in Python, but it is import to know that SPCS can run containers with code written in **any language, with any package**. Awesome, right!?
 
 We will start by running the code for the Flask server locally.
-First, create a conda environment by typing this in your terminal. If you do not have conda already installed, follow the [install directions on the official conda website](https://conda.io/projects/conda/en/latest/user-guide/install/index.html).
+First, clone this repository
+```
+git clone https://github.com/sfc-gh-tosmith/image-classification-spcs.git
+```
+then change into the directory created
+```
+cd your_new_directory_name
+```
+
+Next, create a conda environment by typing this in your terminal. If you do not have conda already installed, follow the [install directions on the official conda website](https://conda.io/projects/conda/en/latest/user-guide/install/index.html).
 ```
   conda create -n "image-classification-spcs" python=3.9
 ```

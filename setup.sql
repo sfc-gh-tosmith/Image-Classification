@@ -96,6 +96,7 @@ CREATE OR REPLACE FUNCTION IMAGE_CLASSIFY_FUNCTION (InputText varchar)
 
 -- At this point, you can test your function by running the below command.
 -- Insert the utf-8 string from example_request.json (starts with /9j/4AAQ)
+-- In a real world scenario/in the pipeline we will build, this will be dynamic. 
 SELECT IMAGE_CLASSIFY_FUNCTION(<insert utf-8 encoded string here>);
 
 

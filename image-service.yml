@@ -1,7 +1,7 @@
 spec:
     containers:
         - name: image-service
-          image: /tutorial_db/data_schema/tutorial_repository/image_service
+          image: /spcs_hol_db/data_schema/hol_image_repository/hol_classification_image
           env:
             SERVER_PORT: 5000
           readinessProbe:

@@ -22,6 +22,9 @@ CREATE COMPUTE POOL SPCS_HOL_COMPUTE_POOL
   INSTANCE_FAMILY = CPU_X64_XS;
 GRANT USAGE, MONITOR ON COMPUTE POOL SPCS_HOL_COMPUTE_POOL TO ROLE SPCS_HOL_ROLE;
 
+-- Give role ability to bind service endpoints to services
+GRANT BIND SERVICE ENDPOINT ON ACCOUNT TO ROLE SPCS_HOL_ROLE;
+
 -- Give the current user the SPCS_HOL_ROLE. Fill in your username.
 GRANT ROLE SPCS_HOL_ROLE TO USER <insert_current_user_here>;
 
@@ -36,7 +39,7 @@ CREATE SCHEMA IF NOT EXISTS DATA_SCHEMA;
 -- Create the image repository to hold the docker image for the service
 CREATE IMAGE REPOSITORY IF NOT EXISTS HOL_IMAGE_REPOSITORY;
 
--- Create a stage to hold the UDF we will create for encoding images
+-- Create a stage to hold our .yml file and the UDF we will create for encoding images
 CREATE STAGE IF NOT EXISTS HOL_STAGE
   DIRECTORY = ( ENABLE = true );
 
@@ -46,11 +49,27 @@ DIRECTORY = (ENABLE = TRUE AUTO_REFRESH = FALSE)
 ENCRYPTION = (TYPE = 'SNOWFLAKE_SSE') 
 COMMENT='Stage to store Image Files';
 
--- Before moving forward, you must push your container image from your local machine
--- to the HOL_IMAGE_REPOSITORY in your Snowflake account. Follow the instructions here:
--- https://docs.snowflake.com/en/developer-guide/snowpark-container-services/tutorials/tutorial-1#build-an-image-and-upload
+-- Before moving forward, you must push your container image from your local machine.
+-- to the HOL_IMAGE_REPOSITORY in your Snowflake account. Directions are below, but see 
+-- the following link for more information: https://docs.snowflake.com/en/developer-guide/snowpark-container-services/tutorials/tutorial-1#build-an-image-and-upload
 
--- Create the IMAGE_CLASSIFIER_SERVICE based on the image-service.yml document 
+-- First find the repository_url for your image repository
+SHOW IMAGE REPOSITORIES;
+
+-- Build your container. In the terminal of your local machine, run:
+--      "docker build --rm --platform linux/amd64 -t <repository_url>/<image_name> . " Don't forget the . at the end
+
+-- Next, we will push the container to the Snowflake image repository. To do that, you need to authenticate. Run:
+--      "docker login <registry_hostname> -u <username>" registry_hostname is the beginning of the repository_url, ending at snowflakecomputing.com
+-- You will then be prompted for your password and authenticate with Snowflake
+
+-- Now, push the container to the Snowflake image repository
+--      "docker push <repository_url>/<image_name>"
+
+-- After pushing the image, we need to upload the image-service.yml file into the HOL_STAGE. The easiest way to do this is
+-- through the Snowsight UI. Navigate to the stage and upload image-service.yml from your local machine
+
+-- Once the image is in Snowflake, we can create the IMAGE_CLASSIFIER_SERVICE based on the image-service.yml document 
 -- and from the SPCS_HOL_COMPUTE_POOL.
 CREATE SERVICE IMAGE_CLASSIFIER_SERVICE
 IN COMPUTE POOL SPCS_HOL_COMPUTE_POOL

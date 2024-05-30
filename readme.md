@@ -11,6 +11,9 @@ In this Hands-on-Lab, you will create an image classification service that runs 
 - Part 2: creating the SPCS service and image processing pipeline through the Snowsight UI.
 
 ## Part 1:
+The service that we will be running is a Flask API that utilizes a Tensorflow model to classify American Sign Language numbers from images. This service was written in Python, but it is import to know that SPCS can run containers with code written in **any language, with any package**. Awesome, right!?
+
+We will start by running the code for the Flask server locally.
 First, create a conda environment by typing this in your terminal
 ```
   conda create -n "image-classification-spcs" python=3.9

@@ -48,7 +48,7 @@ USE WAREHOUSE SPCS_HOL_WH;
 
 -- Create schema for HOL
 CREATE SCHEMA IF NOT EXISTS DATA_SCHEMA;
-
+USE SCHEMA DATA_SCHEMA;
 -- Create the image repository to hold the docker image for the service
 CREATE IMAGE REPOSITORY IF NOT EXISTS HOL_IMAGE_REPOSITORY;
 

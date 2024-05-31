@@ -178,3 +178,12 @@ SELECT * FROM IMAGE_STAGE_STREAM;
 
 -- Once it runs successully, see the results of your work!
 SELECT * FROM IMAGE_CLASSIFICATIONS;
+
+
+
+-- Clean up environment
+DROP DATABASE SPCS_HOL_DB;
+USE ROLE ACCOUNTADMIN; -- Or role you began the lab with
+DROP ROLE SPCS_HOL_ROLE;
+DROP WAREHOUSE SPCS_HOL_WH;
+DROP COMPUTE POOL SPCS_HOL_COMPUTE_POOL;

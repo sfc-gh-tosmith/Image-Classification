@@ -1,6 +1,16 @@
+-- Ideally you could use ACCOUNTADMIN. If not, the required permissions are listed below
 USE ROLE ACCOUNTADMIN;
 
--- Create role for HOL
+-- Required permissions for the role you will be starting the lab with. If your usual role is
+-- DATA_ENGINEER, that role will need the following permissions. Talk with your account admin to accomplish this
+CREATE ROLE ON ACCOUNT
+CREATE DATABASE ON ACCOUNT
+CREATE WAREHOUSE ON ACCOUNT
+CREATE COMPUTE POOL ON ACCOUNT
+BIND SERVICE ENDPOINT ON ACCOUNT WITH GRANT OPTION
+EXECUTE TASK ON ACCOUNT WITH GRANT OPTION;
+
+-- Create role to use throughout the HOL
 CREATE ROLE SPCS_HOL_ROLE;
 
 -- Create database for HOL

@@ -33,7 +33,8 @@ Install the necessary dependencies by typing
 ```
   conda install --yes --file requirements.txt
 ```
-Test the flask app by running
+Test the flask app by running:
+
 (Mac)
 ```
   python3 app.py

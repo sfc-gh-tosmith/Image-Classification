@@ -59,7 +59,7 @@ Using an API request tool like Postman, build a POST request to [localhost:5000/
 ```
 
 ## Part 2 - Create SPCS Service and file processing pipeline
-For part 2, follow the (**setup.sql**)[./setup.sql] file. In this file you will:
+For part 2, follow the [setup.sql](./setup.sql) file. In this file you will:
 - Create a database, schema, and stages
 - Create a compute pool to run your service on
 - Build and push the docker container from your local machine into Snowflake

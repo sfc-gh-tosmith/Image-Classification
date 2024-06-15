@@ -52,7 +52,7 @@ USE SCHEMA DATA_SCHEMA;
 -- Create the image repository to hold the docker image for the service
 CREATE IMAGE REPOSITORY IF NOT EXISTS HOL_IMAGE_REPOSITORY;
 
--- Create a stage to hold our .yml file and the UDF we will create for encoding images
+-- Create a stage to hold our the UDF we will create for encoding images
 CREATE STAGE IF NOT EXISTS HOL_STAGE
   DIRECTORY = ( ENABLE = true );
 
@@ -86,8 +86,10 @@ SHOW IMAGE REPOSITORIES;
 -- and from the SPCS_HOL_COMPUTE_POOL.
 CREATE SERVICE IMAGE_CLASSIFIER_SERVICE
 IN COMPUTE POOL SPCS_HOL_COMPUTE_POOL
-FROM @SPCS_HOL_DB.DATA_SCHEMA.HOL_STAGE
-SPEC = 'image-service.yml';
+FROM SPECIFICATION
+  $$
+  
+  $$;
 
 -- Use these functions to see the status of the service and container logs.
 -- Spinning up the container usually takes around a minute or less

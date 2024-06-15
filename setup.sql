@@ -79,11 +79,8 @@ SHOW IMAGE REPOSITORIES;
 -- Now, push the container to the Snowflake image repository
 --      "docker push <repository_url>/<image_name>"
 
--- After pushing the image, we need to upload the image-service.yml file into the HOL_STAGE. The easiest way to do this is
--- through the Snowsight UI. Navigate to the stage and upload image-service.yml from your local machine
-
--- Once the image is in Snowflake, we can create the IMAGE_CLASSIFIER_SERVICE based on the image-service.yml document 
--- and from the SPCS_HOL_COMPUTE_POOL.
+-- Once the image is in Snowflake, we can create the IMAGE_CLASSIFIER_SERVICE on the SPCS_HOL_COMPUTE_POOL.
+-- The spec code comes from image-service.yml file in the repository
 CREATE SERVICE IMAGE_CLASSIFIER_SERVICE
 IN COMPUTE POOL SPCS_HOL_COMPUTE_POOL
 FROM SPECIFICATION $$

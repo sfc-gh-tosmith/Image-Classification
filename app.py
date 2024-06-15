@@ -63,4 +63,4 @@ def prediction():
  
 # Driver code
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=5000) # IF 5000 IS IN USE, CHOOSE A DIFFERENT ONE. MUST BE UPDATED IN YOUR SERVICE CREATION SPEC

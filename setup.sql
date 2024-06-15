@@ -70,14 +70,14 @@ COMMENT='Stage to store Image Files';
 SHOW IMAGE REPOSITORIES;
 
 -- Build your container. In the terminal of your local machine, run:
---      "docker build --rm --platform linux/amd64 -t <repository_url>/<image_name> . " Don't forget the . at the end
+--      "docker build --rm --platform linux/amd64 -t <repository_url>/hol_classification_image . " Don't forget the . at the end
 
 -- Next, we will push the container to the Snowflake image repository. To do that, you need to authenticate. Run:
 --      "docker login <registry_hostname> -u <username>" registry_hostname is the beginning of the repository_url, ending at snowflakecomputing.com
 -- You will then be prompted for your password and authenticate with Snowflake
 
--- Now, push the container to the Snowflake image repository
---      "docker push <repository_url>/<image_name>"
+-- Now, push the container to the Snowflake image repository. 
+--      "docker push <repository_url>/hol_classification_image"
 
 -- Once the image is in Snowflake, we can create the IMAGE_CLASSIFIER_SERVICE on the SPCS_HOL_COMPUTE_POOL.
 -- The spec code comes from image-service.yml file in the repository

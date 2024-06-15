@@ -185,7 +185,7 @@ WHERE METADATA$ACTION='INSERT'
 -- Start the task
 ALTER TASK CONVERT_AND_PREDICT_IMAGE RESUME;
   
-
+-- UPLOAD IMAGES HERE
 -- To demonstrate the pipeline, upload some of the .jpeg images to the image_files stage. Then, query the IMAGE_STAGE_STREAM
 SELECT * FROM IMAGE_STAGE_STREAM;
 

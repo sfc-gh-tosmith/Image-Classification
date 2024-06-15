@@ -79,6 +79,9 @@ SHOW IMAGE REPOSITORIES;
 -- Now, push the container to the Snowflake image repository. 
 --      "docker push <repository_url>/hol_classification_image"
 
+-- After the above command, the following command should show your image
+SHOW IMAGES IN IMAGE REPOSITORY HOL_IMAGE_REPOSITORY;
+
 -- Once the image is in Snowflake, we can create the IMAGE_CLASSIFIER_SERVICE on the SPCS_HOL_COMPUTE_POOL.
 -- The spec code comes from image-service.yml file in the repository
 CREATE SERVICE IMAGE_CLASSIFIER_SERVICE

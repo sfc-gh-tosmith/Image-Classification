@@ -86,10 +86,23 @@ SHOW IMAGE REPOSITORIES;
 -- and from the SPCS_HOL_COMPUTE_POOL.
 CREATE SERVICE IMAGE_CLASSIFIER_SERVICE
 IN COMPUTE POOL SPCS_HOL_COMPUTE_POOL
-FROM SPECIFICATION
-  $$
-  
-  $$;
+FROM SPECIFICATION $$
+  spec:
+    containers:
+        - name: image-service
+          image: /spcs_hol_db/data_schema/hol_image_repository/hol_classification_image
+          env:
+            SERVER_PORT: 5000 -- MAKE SURE THIS IS THE PORT SPECIFIED IN app.py
+          readinessProbe:
+            port: 5000 -- MAKE SURE THIS IS THE PORT SPECIFIED IN app.py
+            path: /healthcheck
+    endpoints:
+      - name: imageendpoint
+        port: 5000 -- MAKE SURE THIS IS THE PORT SPECIFIED IN app.py
+        public: true
+    $$
+  MIN_INSTANCES=1
+  MAX_INSTANCES=1;
 
 -- Use these functions to see the status of the service and container logs.
 -- Spinning up the container usually takes around a minute or less
